@@ -1,0 +1,10 @@
+﻿@model WebApplication1.Models.Task
+@{
+    ViewBag.Title = "Добавление";
+}
+<form asp-action="create" asp-controller="database">
+    <div class="form-group">
+        <label asp-for="Text" class="control-label">Название</label>
+        <input type="text" asp-for="Text" class="form-control" />
+    </div>
+</form>

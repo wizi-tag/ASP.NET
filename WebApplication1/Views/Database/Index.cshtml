@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WebApplication1.Models.Task>
+    @{
+    ViewBag.Title = "Все";
+    }
+    <a asp-action="Create">Добавить</a>
+    <table class="table">
+        <tr><td>------</td>
+        @foreach (var item in Model)
+        {
+        <tr><td>@item.Text</td>
+        }
+    </table>
