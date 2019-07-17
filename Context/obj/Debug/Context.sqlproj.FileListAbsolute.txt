@@ -1,0 +1,10 @@
+C:\Wizi\Job\VS\WebApplication1\Context\bin\Debug\Context.dacpac
+C:\Wizi\Job\VS\WebApplication1\Context\bin\Debug\Context.dll
+C:\Wizi\Job\VS\WebApplication1\Context\bin\Debug\Context.pdb
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\Context.sqlprojAssemblyReference.cache
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\Model.xml
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\refactor.xml
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\postdeploy.sql
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\predeploy.sql
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\Context.dll
+C:\Wizi\Job\VS\WebApplication1\Context\obj\Debug\Context.pdb

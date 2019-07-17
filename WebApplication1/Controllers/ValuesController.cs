@@ -22,18 +22,20 @@ namespace WebApplication1.Controllers
 
         public ValuesController(Context context)
         {
-            if (tasks == null)
+            if (tasks.Count == null)
             {
                 tasks = new List<Models.Task>
                 {
                     new Models.Task { Id = "0", Flag = true, Text = "Aoaoaoao" }
                 };
+                db = context;
             }
 
-           // db = context;
+           
         }
 
         [HttpGet]
+       [Route("get")]
         public ActionResult<IEnumerable<Models.Task>> Get(string id, string flag, string text)
         {
             Boolean _flag;
@@ -46,13 +48,14 @@ namespace WebApplication1.Controllers
 
             var newTask = new Models.Task { Id = id, Flag = _flag, Text = text };
             tasks.Add(newTask);
-            //db.Tasks.Add(newTask);
+            db.Tasks.AddRange(newTask);
             //db.SaveChanges();
+            
             //return RedirectToAction("Index");
             return tasks;
         }
 
-        [HttpPost]
+       /* [HttpPost]
         public ActionResult<IEnumerable<Models.Task>> Post([FromBody] string id, string flag, string text)
         {
             Boolean _flag;
@@ -70,14 +73,17 @@ namespace WebApplication1.Controllers
             tasks.Add(newTask);
 
             return tasks;
-        }
+        }*/
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Models.Task>>> GetTasks()
+        [Route("gettasks")]
+        public  ActionResult<IEnumerable<Models.Task>> Gettasks()
         {
-            return await db.Tasks.ToListAsync();
+            var output = db.Tasks.ToList();
+            //return await db.Tasks.ToListAsync();
+            // return output;//return ;
+            return tasks;
         }
-
     }
 }
 

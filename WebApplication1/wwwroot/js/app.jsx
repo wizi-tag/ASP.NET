@@ -3,7 +3,15 @@
 
         super(props);
 
-        var xhr = new XMLHttpRequest();
+        this.state = {
+            resp: {}
+        };
+
+        this.addTask(1, true, "text");
+
+        this.getTasks();
+
+        /*var xhr = new XMLHttpRequest();
 
         xhr.open('POST', 'https://localhost:44312/api/values/get?id=9&flag=true&text=rererer', true);
 
@@ -62,14 +70,56 @@
 
                 // получить результат из this.responseText или this.responseXML
             }
+        }*/
+    }
+    render() {
+        this.addTask(1, true, "text");
+        return (<div>
+            <h1> Hello World! </h1>
+                </div>);
+    }
+
+    PORT = 44312
+
+     addTask (id, flag, text) {
+        let xhr = new XMLHttpRequest();
+        let address = `https://localhost:${this.PORT}/api/values/get?id=${id}&flag=${flag}&text=${text}`;
+
+        console.log(address);
+
+        xhr.open('GET', address, true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function() {
+            if (this.readyState != 4) return;
+            
+            if (this.status != 200) {
+                alert('ошибка: ' + (this.status ? this.statusText : 'запрос не удался'));
+                return;
+            }
+
+            console.log(xhr.responseText);
         }
     }
 
-    render() {
+    getTasks(){
+        let xhr = new XMLHttpRequest();
 
-        return (<div>
-                    <h1> Hello World! </h1>
-                </div>);
+        xhr.open('GET', `https://localhost:${this.PORT}/api/values/gettasks`, true);
+
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) return;
+
+            if (this.status != 200) {
+                alert('ошибка: ' + (this.status ? this.statusText : 'запрос не удался'));
+                return;
+            }
+
+            console.log(xhr.responseText);
+        }
     }
 
 }
