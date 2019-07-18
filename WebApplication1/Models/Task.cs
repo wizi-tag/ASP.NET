@@ -7,7 +7,7 @@ namespace WebApplication1.Models
 {
     public class Task
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public Boolean Flag { get; set; }
         public string Text { get; set; }
     }

@@ -18,7 +18,6 @@ namespace WebApplication1.Models
 
             var tasks = new Task[]
             {
-                new Task{Id="0",Flag=true,Text="dsfsdfdsffsd"}
             };
 
             foreach (Task t in tasks)

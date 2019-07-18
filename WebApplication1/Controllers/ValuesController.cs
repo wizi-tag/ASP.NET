@@ -18,107 +18,88 @@ namespace WebApplication1.Controllers
     {
 
         private Context db;
-        List<Models.Task> tasks;
 
         public ValuesController(Context context)
         {
-            if (tasks.Count == null)
+            db = context;
+        }
+
+        [HttpGet]
+        [Route("getlist")]
+        public ActionResult<IEnumerable<Models.Task>> Getlist()
+        {
+            return db.Tasks.ToList();
+        }
+
+        [HttpGet]
+        [Route("set")]
+        public ActionResult Set(int id, string flag, string text)
+        {
+            Boolean _flag = flag == "true";
+            db.Tasks.Add(new Models.Task() { Id = id, Flag = _flag, Text = text });
+            db.SaveChanges();
+
+            return RedirectToAction("Getlist");
+        }
+
+        [HttpGet]
+        [Route("fchange")]
+        public ActionResult Fchange(int id)
+        {
+            var list = db.Tasks.ToList();
+
+            foreach (var i in list)
             {
-                tasks = new List<Models.Task>
+                if (i.Id == id)
                 {
-                    new Models.Task { Id = "0", Flag = true, Text = "Aoaoaoao" }
-                };
-                db = context;
+                    i.Flag = !i.Flag;
+                    db.Entry(i).State = EntityState.Modified;
+                    break;
+                }
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Getlist");
+        }
+
+        [HttpGet]
+        [Route("tchange")]
+        public ActionResult Tchange(int id, string text)
+        {
+            var list = db.Tasks.ToList();
+
+            foreach (var i in list)
+            {
+                if (i.Id == id)
+                {
+                    i.Text = text;
+                    db.Entry(i).State = EntityState.Modified;
+                    break;
+                }
             }
 
-           
+            db.SaveChanges();
+
+            return RedirectToAction("Getlist");
         }
 
         [HttpGet]
-       [Route("get")]
-        public ActionResult<IEnumerable<Models.Task>> Get(string id, string flag, string text)
+        [Route("delete")]
+        public ActionResult Delete(int id)
         {
-            Boolean _flag;
+            var list = db.Tasks.ToList();
 
+            foreach (var i in list)
+            {
+                if (i.Id == id)
+                {
+                    db.Tasks.Remove(i);
+                    break;
+                }
+            }
+            db.SaveChanges();
 
-            if (flag == "true")
-                _flag = true;
-            else
-                _flag = false;
-
-            var newTask = new Models.Task { Id = id, Flag = _flag, Text = text };
-            tasks.Add(newTask);
-            db.Tasks.AddRange(newTask);
-            //db.SaveChanges();
-            
-            //return RedirectToAction("Index");
-            return tasks;
-        }
-
-       /* [HttpPost]
-        public ActionResult<IEnumerable<Models.Task>> Post([FromBody] string id, string flag, string text)
-        {
-            Boolean _flag;
-
-
-            if (flag == "true")
-                _flag = true;
-            else
-                _flag = false;
-
-            //_flag = flag == "true";
-
-            var newTask = new Models.Task { Id = id, Flag = _flag, Text = text };
-
-            tasks.Add(newTask);
-
-            return tasks;
-        }*/
-
-        [HttpGet]
-        [Route("gettasks")]
-        public  ActionResult<IEnumerable<Models.Task>> Gettasks()
-        {
-            var output = db.Tasks.ToList();
-            //return await db.Tasks.ToListAsync();
-            // return output;//return ;
-            return tasks;
+            return RedirectToAction("Getlist");
         }
     }
 }
-
-/*
- * // GET: api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            //return "value";
-            return id.ToString();
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
-
-*/
