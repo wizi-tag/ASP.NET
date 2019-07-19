@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "56f9ca839e2ea36f94ebfe28992531c93de03bb4"
+    "signature": "771e27a42bf79be9d9ecdfaed546a31fb3883de4"
   },
   "compilationOptions": {
     "defines": [
@@ -36,7 +36,8 @@
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
           "Newtonsoft.Json": "12.0.2",
-          "React.AspNet": "4.1.1"
+          "React.AspNet": "4.1.1",
+          "bootstrap": "4.3.1"
         },
         "runtime": {
           "WebApplication1.dll": {}
@@ -54,6 +55,12 @@
         },
         "compile": {
           "lib/netstandard2.0/AdvancedStringBuilder.dll": {}
+        }
+      },
+      "bootstrap/4.3.1": {
+        "dependencies": {
+          "jQuery": "3.0.0",
+          "popper.js": "1.14.0"
         }
       },
       "EntityFramework/6.2.0": {
@@ -162,6 +169,7 @@
           "lib/netstandard2.0/JavaScriptEngineSwitcher.Extensions.MsDependencyInjection.dll": {}
         }
       },
+      "jQuery/3.0.0": {},
       "JSPool/4.0.0": {
         "dependencies": {
           "JavaScriptEngineSwitcher.Core": "3.1.0"
@@ -356,6 +364,7 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "popper.js/1.14.0": {},
       "React.AspNet/4.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.2.0",
@@ -3748,6 +3757,13 @@
       "path": "advancedstringbuilder/0.1.0",
       "hashPath": "advancedstringbuilder.0.1.0.nupkg.sha512"
     },
+    "bootstrap/4.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lrVBeG2vmfwsHJuwSzeXz+1hPn/374vXDOAusU50vzljEWcFOFtif3wzIJJqfqQRHs2RnY0xttZ0Zv5JX4BFGg==",
+      "path": "bootstrap/4.3.1",
+      "hashPath": "bootstrap.4.3.1.nupkg.sha512"
+    },
     "EntityFramework/6.2.0": {
       "type": "package",
       "serviceable": true,
@@ -3803,6 +3819,13 @@
       "sha512": "sha512-kmMJtNQyPGJqxTIDwRhCN9MSi6l9lYbc5hfj4w2i5sAlXBV/miKVrr3nXOS7ETU1U3bFnSp2tU7ySTUE+lKh0w==",
       "path": "javascriptengineswitcher.extensions.msdependencyinjection/3.1.0",
       "hashPath": "javascriptengineswitcher.extensions.msdependencyinjection.3.1.0.nupkg.sha512"
+    },
+    "jQuery/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xFfntV19HzCtKdJWOp/XT9PUY3SslokTDDLFJZdBug36j1XVhw1+vPQ/n7Gd5y+jdpesn5B1m1yn1qIUq57jlA==",
+      "path": "jquery/3.0.0",
+      "hashPath": "jquery.3.0.0.nupkg.sha512"
     },
     "JSPool/4.0.0": {
       "type": "package",
@@ -3894,6 +3917,13 @@
       "sha512": "sha512-KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "popper.js/1.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SPxZdXknelgQ015wey7GMZvsVdt/SyEmHYORhEp5k/uF9MUk9DPtkn+6dR98fud2hVWJjZm9KKr474+r7WQt+A==",
+      "path": "popper.js/1.14.0",
+      "hashPath": "popper.js.1.14.0.nupkg.sha512"
     },
     "React.AspNet/4.1.1": {
       "type": "package",

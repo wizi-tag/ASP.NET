@@ -32,11 +32,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        [Route("set")]
-        public ActionResult Set(int id, string flag, string text)
+        [Route("add")]
+        public ActionResult Add()
         {
-            Boolean _flag = flag == "true";
-            db.Tasks.Add(new Models.Task() { Id = id, Flag = _flag, Text = text });
+            db.Tasks.Add(new Models.Task() { Id = 0, Flag = false, Text = "New task!" });
             db.SaveChanges();
 
             return RedirectToAction("Getlist");
