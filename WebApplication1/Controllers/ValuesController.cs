@@ -31,11 +31,11 @@ namespace WebApplication1.Controllers
             return db.Tasks.ToList();
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("add")]
-        public ActionResult Add()
+        public ActionResult Add(string text)
         {
-            db.Tasks.Add(new Models.Task() { Id = 0, Flag = false, Text = "New task!" });
+            db.Tasks.Add(new Models.Task() { Id = 0, Flag = false, Text = text });
             db.SaveChanges();
 
             return RedirectToAction("Getlist");

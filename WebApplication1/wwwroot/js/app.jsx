@@ -1,4 +1,9 @@
-﻿class Hello extends React.Component {
+﻿const {
+    Card, CardBody, InputGroup,
+    InputGroupAddon, InputGroupText, Input, ButtonGroup, Button
+} = Reactstrap;
+
+class Hello extends React.Component {
     constructor(props) {
 
         super(props);
@@ -16,13 +21,38 @@
 
 
         return (
-            <div>
+            <div style={{ width: '30vw', margin: 'auto' }}>
                 {
                     resp.map((item, key) =>
-                        <div key={key}>
-                            <h3> {item} </h3>
-                        </div>)
+                        <Card style={{ marginTop: '20px' }} key={key}>
+                            <CardBody>
+                                <InputGroup>
+                                    <InputGroupAddon addonType="prepend">
+                                        <InputGroupText>
+                                            <Input addon type="checkbox"
+                                                aria-label="Active/Disactive"
+                                                checked={item.status}
+                                                onChange={() => { }} />
+                                        </InputGroupText>
+                                    </InputGroupAddon>
+                                    <Input placeholder={item.text} disabled />
+                                    <ButtonGroup>
+                                        <Button>Изменить</Button>
+                                        <Button>Удалить</Button>
+                                    </ButtonGroup>
+                                </InputGroup>
+                            </CardBody>
+                        </Card>
+                    )
                 }
+                <Button
+                    color="secondary"
+                    size="lg"
+                    block
+                    style={{ marginTop: '30px' }}
+                >Добавить карту</Button>
+
+                //<Form></Form>
             </div>
             );
 
@@ -76,7 +106,7 @@
                 return;
             }
 
-            this.setState({ resp: xhr.responseText })
+            this.setState({ resp: JSON.parse(xhr.responseText) })
         }.bind(this)
     }
 

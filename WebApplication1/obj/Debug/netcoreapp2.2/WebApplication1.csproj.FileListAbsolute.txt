@@ -23,4 +23,3 @@ C:\Wizi\Job\VS\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.2\Razor\Vie
 C:\Wizi\Job\VS\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.2\WebApplication1.RazorTargetAssemblyInfo.cs
 C:\Wizi\Job\VS\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.2\WebApplication1.Views.pdb
 C:\Wizi\Job\VS\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.2\WebApplication1.csproj.CopyComplete
-C:\Wizi\Job\VS\WebApplication1\WebApplication1\obj\Debug\netcoreapp2.2\Razor\Views\Database\Create.g.cshtml.cs
